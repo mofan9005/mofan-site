@@ -1,0 +1,38 @@
+/* Native route snapshots: the header stays still; only the page travels 18px.
+   No scale, back/elastic ease, or spatial movement in reduced-motion mode. */
+html[data-route-motion] .site-header { view-transition-name: example-header; }
+::view-transition-group(root),
+::view-transition-group(example-header) { animation: none; }
+::view-transition-old(root) { animation: example-route-out 220ms ease-out both; }
+::view-transition-new(root) { animation: example-route-in 760ms cubic-bezier(.16,1,.3,1) both; }
+::view-transition-old(example-header) { animation: example-fade-out 180ms ease-out both; }
+::view-transition-new(example-header) { animation: example-fade-in 180ms ease-out both; }
+::view-transition-image-pair(root),
+::view-transition-image-pair(example-header) { isolation: isolate; }
+::view-transition-old(root), ::view-transition-new(root),
+::view-transition-old(example-header), ::view-transition-new(example-header) { mix-blend-mode: normal; }
+@keyframes example-route-out {
+ to { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes example-route-in {
+ from { opacity: 0; transform: translateY(18px); clip-path: inset(0 0 8% 0); }
+ to { opacity: 1; transform: translateY(0); clip-path: inset(0); }
+}
+@keyframes example-fade-out { to { opacity: 0; } }
+@keyframes example-fade-in { from { opacity: 0; } to { opacity: 1; } }
+html[data-route-motion="reduce"]::view-transition-old(root) { animation: example-fade-out 180ms linear both; }
+html[data-route-motion="reduce"]::view-transition-new(root) { animation: example-fade-in 180ms linear both; }
+.motion-route-cover { position: fixed; inset: 0; z-index: 1100; background: var(--paper, #f5fafb); opacity: 0; overflow: hidden; pointer-events: auto; }
+.motion-route-cover * { animation-play-state: paused !important; transition: none !important; }
+.motion-number-readable { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.motion-number-visual { white-space: nowrap; }
+.motion-digit { position: relative; display: inline-block; overflow: clip; vertical-align: bottom; }
+.motion-digit-space { visibility: hidden; }
+.motion-digit-strip { position: absolute; inset: 0 0 auto; display: flex; flex-direction: column; transform: translateY(-66.666667%); }
+.motion-digit-strip > span { flex: none; }
+@media (prefers-reduced-motion: reduce) {
+ ::view-transition-old(root), ::view-transition-old(example-header) { animation: example-fade-out 180ms linear both !important; }
+ ::view-transition-new(root), ::view-transition-new(example-header) { animation: example-fade-in 180ms linear both !important; }
+ .motion-digit-space { visibility: visible; }
+ .motion-digit-strip { display: none; }
+}

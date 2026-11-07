@@ -1,0 +1,26 @@
+/* Sampled from the approved course scene: deep lane, mid-water and caustics.
+   Both scenes and their static fallbacks share this one sRGB palette. */
+:root {
+ --water-shadow: #071826;
+ --water-deep: #265984;
+ --water-blue: #316d99;
+ --water-tile: #53baea;
+ --water-mid: #5dc9f3;
+ --water-light: #6ed6f9;
+ --water-highlight: #90ecfd;
+ --water-glint: #b2f9fe;
+ --water-grade-stops: 0 23 73 89 151 166 183 212 232 255;
+}
+.pool-water.pool-water { background: var(--water-mid); pointer-events: none; }
+/* Replace the old gallery-only desaturation and grey overlay. */
+.pool-water.gallery-water { filter: none; }
+.pool-water.gallery-water::after { content: none; }
+.pool-water .pool-water-filter { position: absolute; overflow: hidden; }
+.pool-water > canvas { pointer-events: none; }
+/* Independent translate/rotate leave scroll parallax and hover scale alone. */
+.course-pool .object-image { animation: none; }
+.course-pool .pool-object::before,
+.course-pool .pool-object::after { content: none; }
+@media (prefers-reduced-motion: reduce) {
+ .course-pool .object-image { translate: none !important; rotate: none !important; }
+}

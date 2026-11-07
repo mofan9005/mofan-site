@@ -1,0 +1,13 @@
+/* About only: the illustration is the page surface, with a blue masthead crossing its top edge. */
+[data-route="about"] .about-hero{height:100svh;min-height:780px;display:block;padding:0;background:#54b6c5}
+[data-route="about"] .about-hero h1{position:absolute;z-index:2;top:100px;left:4%;width:auto;margin:0;transform:none;font-size:clamp(140px,14.5vw,230px);line-height:.9;letter-spacing:-.065em;color:#084c85;text-align:left;-webkit-text-stroke:2px #f5fafb;paint-order:stroke fill;pointer-events:none}
+[data-route="about"] .about-rocker{position:absolute;inset:190px 0 0;width:100%;margin:0;border:0;border-radius:0;box-shadow:none;background:#fff;overflow:hidden}
+[data-route="about"] .about-rocker img,[data-route="about"] .about-rocker video{display:block;width:100%;height:100%;object-fit:cover;object-position:62% center}
+[data-route="about"] .about-rocker video{position:absolute;inset:0;opacity:0}
+[data-route="about"] .about-rocker video.is-ready{opacity:1}
+@media(max-width:700px){
+ [data-route="about"] .about-hero{height:80svh;min-height:620px;max-height:900px}
+ [data-route="about"] .about-hero h1{top:112px;left:5%;font-size:27vw;-webkit-text-stroke:1px #f5fafb}
+ [data-route="about"] .about-rocker{inset:162px 0 0}
+ [data-route="about"] .about-rocker img,[data-route="about"] .about-rocker video{object-position:60% center}
+}

@@ -1,0 +1,47 @@
+/* Shared course / brief archive rows. The hit area and neighboring rows never transform. */
+.interactive-list-panel{background:var(--ink);color:var(--paper);padding:36px clamp(20px,4vw,58px);isolation:isolate}
+.interactive-list{padding:0;margin:0;list-style:none}
+.interactive-list-item{position:relative;border-bottom:1px solid #f5fafb30;z-index:0}
+.interactive-list-item:first-child{border-top:1px solid #f5fafb30}
+.interactive-list-item.is-active{z-index:2}
+.interactive-list-link{position:relative;display:block;min-width:0;outline:none}
+.interactive-list-surface{position:absolute;inset:7px -22px;border-radius:100px;background:var(--paper);opacity:0;transform:rotate(0) scaleX(.97);transition:transform .48s cubic-bezier(.22,1.2,.36,1),opacity .22s ease;pointer-events:none}
+.interactive-list-content{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 155px 146px;align-items:center;gap:clamp(20px,3.5vw,52px);min-height:144px;padding:28px 0;transform:rotate(0);transition:transform .48s cubic-bezier(.22,1.2,.36,1);pointer-events:none}
+.interactive-list .interactive-list-title{font:700 clamp(23px,2.1vw,32px)/1.4 var(--display);margin:0;letter-spacing:0;text-wrap:pretty;overflow-wrap:anywhere;transition:color .22s ease}
+.interactive-list-date{font:700 16px/1.5 var(--body);font-variant-numeric:tabular-nums;text-align:center;white-space:nowrap;transition:color .22s ease}
+.interactive-list-action{display:flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:13px 20px;border:1px solid transparent;border-radius:99px;background:var(--paper);color:var(--ink);font:700 15px/1.5 var(--body);white-space:nowrap;transition:background .22s ease,color .22s ease}
+.interactive-list-action svg{width:19px;height:19px}
+.interactive-list-photo{position:absolute;left:62%;top:50%;width:clamp(180px,23vw,310px);z-index:1;pointer-events:none}
+.interactive-list-photo img{width:100%;height:auto;aspect-ratio:8/5;object-fit:contain;background:var(--paper);border:5px solid var(--paper);border-radius:8px;box-shadow:0 15px 35px #05131e40;opacity:0;transform:translate(-50%,-64%) rotate(0) scale(.72);transform-origin:50% 80%;transition:transform .48s cubic-bezier(.22,1.2,.36,1),opacity .2s ease}
+.interactive-list-item.is-active .interactive-list-surface{opacity:1;transform:rotate(-2deg) scaleX(1.015)}
+.interactive-list-item.is-active .interactive-list-content{transform:rotate(-2deg)}
+.interactive-list-item.is-active .interactive-list-title{color:var(--pink)}
+.interactive-list-item.is-active .interactive-list-date{color:var(--ink)}
+.interactive-list-item.is-active .interactive-list-action{background:var(--pink);color:var(--ink)}
+.interactive-list-item.is-active .interactive-list-photo img{opacity:1;transform:translate(-50%,-82%) rotate(9deg) scale(1)}
+.interactive-list-link:focus-visible{outline:none}
+.interactive-list-link:focus-visible .interactive-list-surface{outline:3px solid var(--pink);outline-offset:5px}
+@media(min-width:701px) and (max-width:1000px){
+ .interactive-list-content{grid-template-columns:minmax(0,1fr) 105px 124px;gap:22px;min-height:150px}
+ .interactive-list-date{font-size:13px}
+ .interactive-list-action{font-size:14px;padding-inline:14px}
+ .interactive-list-photo{left:60%;width:220px}
+}
+@media(max-width:700px){
+ .interactive-list-panel{padding:20px 18px}
+ .interactive-list-content{grid-template-columns:minmax(0,1fr) auto;gap:18px 12px;min-height:174px;padding:26px 0}
+ .interactive-list .interactive-list-title{grid-column:1/-1;font-size:21px;line-height:1.5}
+ .interactive-list-date{grid-column:1;grid-row:2;text-align:left;font-size:13px}
+ .interactive-list-action{grid-column:2;grid-row:2;min-height:44px;font-size:13px;padding:10px 13px;gap:8px}
+ .interactive-list-action svg{width:16px;height:16px}
+ .interactive-list-surface{inset:8px -11px;border-radius:38px}
+ .interactive-list-photo{left:65%;top:0;width:148px}
+ .interactive-list-photo img{border-width:4px;transform:translate(-50%,-56%) scale(.75)}
+ .interactive-list-item.is-active .interactive-list-photo img{transform:translate(-50%,-65%) rotate(8deg) scale(1)}
+ .interactive-list-item.is-active .interactive-list-surface{transform:rotate(-2deg) scaleX(1.01)}
+}
+@media(prefers-reduced-motion:reduce){
+ .interactive-list-surface,.interactive-list-content,.interactive-list-title,.interactive-list-date,.interactive-list-action,.interactive-list-photo img{transition:none}
+ .interactive-list-item .interactive-list-surface,.interactive-list-item .interactive-list-content,.interactive-list-photo{transform:none!important}
+ .interactive-list-photo{display:none}
+}

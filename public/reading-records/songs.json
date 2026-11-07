@@ -1,0 +1,28 @@
+{
+  "songs": [
+    {
+      "bookId": "example-1",
+      "songId": "example-1",
+      "title": "示例音频（未提供）",
+      "artist": "Example",
+      "publicAudioAvailable": false,
+      "fallbackSongIds": []
+    },
+    {
+      "bookId": "example-2",
+      "songId": "example-2",
+      "title": "示例音频（未提供）",
+      "artist": "Example",
+      "publicAudioAvailable": false,
+      "fallbackSongIds": []
+    },
+    {
+      "bookId": "example-3",
+      "songId": "example-3",
+      "title": "示例音频（未提供）",
+      "artist": "Example",
+      "publicAudioAvailable": false,
+      "fallbackSongIds": []
+    }
+  ]
+}

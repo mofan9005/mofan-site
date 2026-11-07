@@ -1,0 +1,44 @@
+{
+  "books": [
+    {
+      "id": "example-1",
+      "title": "示例书籍 1 / Example",
+      "author": "示例作者",
+      "format": "essay",
+      "cover": "/reading-records/example-1.svg",
+      "entries": [
+        {
+          "kind": "reflection",
+          "text": "示例内容 / Example\n这段文字用于展示阅读页面的排版，不摘录任何真实作品，也不描述个人经历。"
+        }
+      ]
+    },
+    {
+      "id": "example-2",
+      "title": "示例书籍 2 / Example",
+      "author": "示例作者",
+      "format": "essay",
+      "cover": "/reading-records/example-2.svg",
+      "entries": [
+        {
+          "kind": "reflection",
+          "text": "示例内容 / Example\n这段文字用于展示阅读页面的排版，不摘录任何真实作品，也不描述个人经历。"
+        }
+      ]
+    },
+    {
+      "id": "example-3",
+      "title": "示例书籍 3 / Example",
+      "author": "示例作者",
+      "format": "essay",
+      "cover": "/reading-records/example-3.svg",
+      "entries": [
+        {
+          "kind": "reflection",
+          "text": "示例内容 / Example\n这段文字用于展示阅读页面的排版，不摘录任何真实作品，也不描述个人经历。"
+        }
+      ]
+    }
+  ],
+  "entryCount": 3
+}
